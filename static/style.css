@@ -1,0 +1,40 @@
+/* Labai paprastas CSS */
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    color: black;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+a {
+    color: blue;
+}
+
+button {
+    padding: 5px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="text"], input[type="number"] {
+    padding: 5px;
+    border: 1px solid black;
+}

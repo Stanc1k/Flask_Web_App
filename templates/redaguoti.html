@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Redaguoti Automobilį</title>
+</head>
+<body>
+    <h1>Redaguoti {{ automobilis.modelis }}</h1>
+    <form action="/redaguoti/{{ automobilis.id }}" method="post">
+        <label>Gamintojas:</label>
+        <input type="text" name="gamintojas" value="{{ automobilis.gamintojas }}" required><br>
+
+        <label>Modelis:</label>
+        <input type="text" name="modelis" value="{{ automobilis.modelis }}" required><br>
+
+        <label>Spalva:</label>
+        <input type="text" name="spalva" value="{{ automobilis.spalva }}" required><br>
+
+        <label>Metai:</label>
+        <input type="number" name="metai" value="{{ automobilis.metai }}" required><br>
+
+        <label>Kaina:</label>
+        <input type="number" step="0.01" name="kaina" value="{{ automobilis.kaina }}" required><br>
+
+        <button type="submit">Išsaugoti</button>
+    </form>
+    <a href="/">Atgal</a>
+</body>
+</html>
