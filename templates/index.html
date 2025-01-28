@@ -7,41 +7,47 @@
     <title>Automobiliai</title>
 </head>
 <body>
-    <h1>Visi Automobiliai</h1>
-    <form action="/ieskoti" method="post">
-        <input type="text" name="keyword" placeholder="Ieškoti...">
-        <button type="submit">Ieškoti</button>
-    </form>
-    <a href="/prideti">Pridėti naują automobilį</a>
-    <table>
-        <thead>
-            <tr>
-                <th>Gamintojas</th>
-                <th>Modelis</th>
-                <th>Spalva</th>
-                <th>Metai</th>
-                <th>Kaina</th>
-                <th>Veiksmai</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for automobilis in automobiliai %}
-            <tr>
-                <td>{{ automobilis.gamintojas }}</td>
-                <td>{{ automobilis.modelis }}</td>
-                <td>{{ automobilis.spalva }}</td>
-                <td>{{ automobilis.metai }}</td>
-                <td>{{ automobilis.kaina }}</td>
-                <td>
-                    <a href="/automobiliai/{{ automobilis.id }}">Peržiūrėti</a>
-                    <a href="/redaguoti/{{ automobilis.id }}">Redaguoti</a>
-                    <form action="/istrinti/{{ automobilis.id }}" method="post" style="display:inline;">
-                        <button type="submit">Ištrinti</button>
-                    </form>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<h1>Visi Automobiliai</h1>
+<form action="/ieskoti" method="post">
+    <input type="text" name="keyword" placeholder="Ieškoti...">
+    <button type="submit">Ieškoti</button>
+</form>
+<a href="/prideti">Pridėti naują automobilį</a>
+<table>
+    <thead>
+    <tr>
+        <th>Gamintojas</th>
+        <th>Modelis</th>
+        <th>Spalva</th>
+        <th>Metai</th>
+        <th>Kaina</th>
+        <th>Veiksmai</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for automobilis in automobiliai %}
+    <tr>
+        <td>{{ automobilis.gamintojas }}</td>
+        <td>{{ automobilis.modelis }}</td>
+        <td>{{ automobilis.spalva }}</td>
+        <td>{{ automobilis.metai }}</td>
+        <td>{{ automobilis.kaina }}</td>
+        <td>
+            <a href="/automobiliai/{{ automobilis.id }}">Peržiūrėti</a>
+            <a href="/redaguoti/{{ automobilis.id }}">Redaguoti</a>
+            <form action="/istrinti/{{ automobilis.id }}" method="post" style="display:inline;">
+                <button type="submit">Ištrinti</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="4" style="text-align:right;"><strong>Bendra suma:</strong></td>
+        <td colspan="2"><strong>{{ bendra_kaina }}</strong></td>
+    </tr>
+    </tfoot>
+</table>
 </body>
 </html>

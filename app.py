@@ -28,7 +28,8 @@ with app.app_context():
 @app.route('/')
 def index():
     automobiliai = Automobilis.query.all()
-    return render_template('index.html', automobiliai=automobiliai)
+    bendra_kaina = db.session.query(db.func.sum(Automobilis.kaina)).scalar()  # Tiesioginė suma
+    return render_template('index.html', automobiliai=automobiliai, bendra_kaina=bendra_kaina)
 
 
 @app.route('/automobiliai/<int:id>')
