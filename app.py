@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+from flask import jsonify
 
 # Initialize the Flask app and configure the database
 app = Flask(__name__)
@@ -96,6 +97,23 @@ def istrinti(id):
     db.session.delete(automobilis)
     db.session.commit()
     return redirect(url_for('index'))
+
+
+@app.route('/api2/automobiliai')
+def get_automobiliai():
+    automobiliai = Automobilis.query.all()
+    automobiliai_data = [
+        {
+            "id": auto.id,
+            "gamintojas": auto.gamintojas,
+            "modelis": auto.modelis,
+            "spalva": auto.spalva,
+            "metai": auto.metai,
+            "kaina": auto.kaina
+        }
+        for auto in automobiliai
+    ]
+    return jsonify(automobiliai_data)
 
 
 if __name__ == '__main__':
