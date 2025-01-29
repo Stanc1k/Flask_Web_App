@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{% block title %}Automobiliai{% endblock %}</title>
+</head>
+<body>
+<header>
+    <h1>{% block header %}Automobiliai{% endblock %}</h1>
+</header>
+<main>
+    {% block content %}{% endblock %}
+</main>
+<footer>
+    <a href="/">Atgal</a>
+</footer>
+</body>
+</html>

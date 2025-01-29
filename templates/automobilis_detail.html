@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>{{ automobilis.modelis }}</title>
-</head>
+{% extends "base.html" %}
+
+{% block title %}Redaguoti {{ automobilis.gamintojas }}{% endblock %}
+
+{% block content %}
 <body>
-    <h1>{{ automobilis.gamintojas }} {{ automobilis.modelis }}</h1>
-    <p>Spalva: {{ automobilis.spalva }}</p>
-    <p>Metai: {{ automobilis.metai }}</p>
-    <p>Kaina: {{ automobilis.kaina }} €</p>
-    <a href="/">Atgal</a>
-</body>
-</html>
+<h1>{{ automobilis.gamintojas }} {{ automobilis.modelis }}</h1>
+<p>Spalva: {{ automobilis.spalva }}</p>
+<p>Metai: {{ automobilis.metai }}</p>
+<p>Kaina: {{ automobilis.kaina }} €</p>
+
+{% endblock %}

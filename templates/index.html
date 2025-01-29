@@ -1,13 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Automobiliai</title>
-</head>
-<body>
-<h1>Visi Automobiliai</h1>
+{% extends "base.html" %}
+
+{% block title %}Visi Automobiliai{% endblock %}
+
+{% block content %}
 <form action="/ieskoti" method="post">
     <input type="text" name="keyword" placeholder="Ieškoti...">
     <button type="submit">Ieškoti</button>
@@ -49,5 +45,5 @@
     </tr>
     </tfoot>
 </table>
-</body>
-</html>
+
+{% endblock %}
